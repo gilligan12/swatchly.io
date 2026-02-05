@@ -73,3 +73,9 @@ SHOPIFY_API_SECRET=
 ## Next Steps
 
 See `PLAN.md` for the complete development roadmap.
+
+## Additional Setup Guides
+
+- `SUPABASE_SETUP.md` - Initial Supabase database setup
+- `SUPABASE_SMTP_SETUP.md` - Configure custom SMTP email authentication
+- `VERCEL_SETUP.md` - Vercel deployment instructions
