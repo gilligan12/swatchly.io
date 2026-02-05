@@ -78,4 +78,6 @@ See `PLAN.md` for the complete development roadmap.
 
 - `SUPABASE_SETUP.md` - Initial Supabase database setup
 - `SUPABASE_SMTP_SETUP.md` - Configure custom SMTP email authentication
+- `RESEND_SETUP_GUIDE.md` - Complete Resend SMTP setup guide
+- `DOMAIN_VERIFICATION_GUIDE.md` - Detailed domain verification (including Vercel)
 - `VERCEL_SETUP.md` - Vercel deployment instructions

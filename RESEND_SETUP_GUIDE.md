@@ -43,35 +43,167 @@ Resend is a modern email API built for developers. It offers:
 - Emails come from your domain (e.g., `noreply@swatchly.io`)
 - Professional appearance
 - Avoids spam filters
+- Builds domain reputation over time
 
 **Option A: Verify Your Own Domain**
 
-1. **Go to Domains**
+#### Step 2a: Add Domain in Resend
+
+1. **Go to Domains in Resend**
    - In Resend dashboard, click **"Domains"** in the left sidebar
    - Click **"Add Domain"** button
 
 2. **Enter Your Domain**
-   - Enter your domain (e.g., `swatchly.io` or `mail.swatchly.io`)
+   - Enter your domain (e.g., `swatchly.io`)
+   - **Note**: You can use a subdomain like `mail.swatchly.io` if you prefer
    - Click **"Add Domain"**
 
 3. **Get DNS Records**
    - Resend will show you DNS records to add
-   - You'll need to add these to your domain's DNS:
-     - **SPF Record** (TXT record)
-     - **DKIM Record** (TXT record)
-     - **DMARC Record** (TXT record - optional but recommended)
+   - You'll see three types of records:
+     - **SPF Record** (TXT record) - Verifies sender identity
+     - **DKIM Record** (TXT record) - Signs emails cryptographically
+     - **DMARC Record** (TXT record) - Optional but recommended for security
+   - **Copy each record** - You'll need to add these to your DNS
 
-4. **Add DNS Records**
-   - Go to your domain registrar (GoDaddy, Namecheap, Cloudflare, etc.)
-   - Navigate to DNS settings
-   - Add each record exactly as Resend shows
-   - **Important**: Wait 5-10 minutes for DNS propagation
+#### Step 2b: Add DNS Records to Your Domain
 
-5. **Verify Domain**
-   - Go back to Resend dashboard
-   - Click **"Verify"** next to your domain
-   - Resend will check DNS records
-   - Status will change to **"Verified"** when ready
+The process depends on where your domain DNS is managed. Here are instructions for common scenarios:
+
+**Scenario 1: Domain Managed by Vercel**
+
+If you've added your domain to Vercel, you can manage DNS through Vercel:
+
+1. **Go to Vercel Dashboard**
+   - Visit: https://vercel.com/dashboard
+   - Select your project (swatchly.io)
+
+2. **Navigate to Domain Settings**
+   - Click on your project
+   - Go to **Settings** → **Domains**
+   - Find your domain (e.g., `swatchly.io`)
+   - Click on it to view DNS settings
+
+3. **Add DNS Records**
+   - Look for **"DNS Records"** or **"DNS Configuration"** section
+   - Click **"Add Record"** or **"Add DNS Record"**
+   
+4. **Add SPF Record**
+   - **Type**: Select **TXT**
+   - **Name**: Leave blank or enter `@` (for root domain)
+   - **Value**: Paste the SPF record from Resend
+     - Example: `v=spf1 include:resend.com ~all`
+   - **TTL**: Leave default (usually 3600)
+   - Click **"Save"** or **"Add Record"**
+
+5. **Add DKIM Record**
+   - Click **"Add Record"** again
+   - **Type**: Select **TXT**
+   - **Name**: Enter the DKIM selector from Resend
+     - Example: `resend._domainkey` or similar
+     - Resend will show you the exact name to use
+   - **Value**: Paste the full DKIM record from Resend
+     - This will be a long string starting with `v=DKIM1; k=rsa; p=...`
+   - **TTL**: Leave default
+   - Click **"Save"**
+
+6. **Add DMARC Record (Optional but Recommended)**
+   - Click **"Add Record"** again
+   - **Type**: Select **TXT**
+   - **Name**: Enter `_dmarc`
+   - **Value**: `v=DMARC1; p=none; rua=mailto:dmarc@swatchly.io`
+     - Replace `dmarc@swatchly.io` with your email for DMARC reports
+   - **TTL**: Leave default
+   - Click **"Save"**
+
+7. **Wait for DNS Propagation**
+   - DNS changes can take 5 minutes to 48 hours
+   - Usually takes 10-30 minutes
+   - You can check propagation at: https://dnschecker.org
+
+8. **Verify in Resend**
+   - Go back to Resend dashboard → **Domains**
+   - Click **"Verify"** button next to your domain
+   - Resend will check if DNS records are correct
+   - Status will show **"Verified"** ✅ when ready
+   - If it fails, wait a few more minutes and try again
+
+**Scenario 2: Domain Managed by Cloudflare**
+
+1. **Go to Cloudflare Dashboard**
+   - Visit: https://dash.cloudflare.com
+   - Select your domain
+
+2. **Go to DNS Settings**
+   - Click **"DNS"** in the left sidebar
+   - Click **"Add record"**
+
+3. **Add Each Record**
+   - Follow the same steps as Vercel above
+   - Add SPF, DKIM, and DMARC records as TXT records
+   - Cloudflare will auto-suggest the correct format
+
+4. **Verify in Resend**
+   - Wait 5-10 minutes
+   - Click "Verify" in Resend dashboard
+
+**Scenario 3: Domain Managed by GoDaddy, Namecheap, or Other Registrar**
+
+1. **Log into Your Registrar**
+   - Go to your domain registrar's website
+   - Log into your account
+
+2. **Find DNS Management**
+   - Look for **"DNS Management"**, **"DNS Settings"**, or **"Advanced DNS"**
+   - This is usually under **"Domain Settings"** or **"My Domains"**
+
+3. **Add DNS Records**
+   - Find the section to add **TXT records**
+   - Click **"Add Record"** or **"Add"**
+   - Add each record (SPF, DKIM, DMARC) as shown above
+   - Save each record
+
+4. **Verify in Resend**
+   - Wait 10-30 minutes for DNS propagation
+   - Click "Verify" in Resend dashboard
+
+**Scenario 4: Using a Subdomain (e.g., mail.swatchly.io)**
+
+If you want to use a subdomain instead of the root domain:
+
+1. **In Resend**: Add `mail.swatchly.io` (or your preferred subdomain)
+2. **In DNS**: Add records with the subdomain name
+   - For SPF: Name = `mail` (or leave blank if using `@`)
+   - For DKIM: Name = `resend._domainkey.mail` (Resend will show exact name)
+   - For DMARC: Name = `_dmarc.mail`
+3. **Verify**: Same process as above
+
+#### Step 2c: Verify Domain Status
+
+1. **Check DNS Propagation** (Optional)
+   - Visit: https://dnschecker.org
+   - Enter your domain
+   - Select **TXT** record type
+   - Check if your records appear globally
+   - Wait until they show up in most locations
+
+2. **Verify in Resend**
+   - Go to Resend dashboard → **Domains**
+   - Find your domain in the list
+   - Click **"Verify"** button
+   - Resend will check all DNS records
+   - You'll see status:
+     - ✅ **"Verified"** - All good!
+     - ❌ **"Pending"** - DNS still propagating, wait and try again
+     - ❌ **"Failed"** - Check that records are added correctly
+
+3. **Troubleshooting Verification**
+   - If verification fails:
+     - Double-check record names match exactly
+     - Verify record values are copied completely
+     - Ensure TTL has passed (wait 10-15 minutes)
+     - Check for typos in domain name
+     - Make sure you're adding TXT records, not other types
 
 **Option B: Use Resend Test Domain (For Testing)**
 
