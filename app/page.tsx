@@ -4,8 +4,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 via-teal-50 to-cyan-50">
       {/* Floating Navigation */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/50">
-        <div className="container mx-auto px-6 py-4">
+      <nav className="sticky top-4 z-50 mx-4 mt-4 mb-8">
+        <div className="container mx-auto px-6 py-4 backdrop-blur-md bg-white/80 border border-gray-200/50 rounded-2xl shadow-lg">
           <div className="flex items-center justify-between">
             <div className="text-xl font-bold text-green-700">
               Swatchly.io
