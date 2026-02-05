@@ -58,6 +58,9 @@ export default function SignUpPage() {
           email: individualEmail,
           password: individualPassword,
           options: {
+            emailRedirectTo: typeof window !== 'undefined' 
+              ? `${window.location.origin}/auth/callback`
+              : undefined,
             data: {
               name: individualName,
               account_type: 'individual',
@@ -114,6 +117,9 @@ export default function SignUpPage() {
           email: businessEmail,
           password: businessPassword,
           options: {
+            emailRedirectTo: typeof window !== 'undefined' 
+              ? `${window.location.origin}/auth/callback`
+              : undefined,
             data: {
               name: businessAdminName,
               account_type: 'business',
