@@ -54,29 +54,26 @@ export default function SignUpPage() {
         }
 
         // Sign up individual user
-        const redirectUrl = typeof window !== 'undefined' 
-          ? `${window.location.origin}/auth/callback`
-          : undefined
-        
-        const signUpOptions: any = {
-          data: {
-            name: individualName,
-            account_type: 'individual',
-          },
-        }
-        
-        // Only add emailRedirectTo if we have a valid URL
-        if (redirectUrl) {
-          signUpOptions.emailRedirectTo = redirectUrl
-        }
-
+        // Try without emailRedirectTo first to see if that's the issue
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email: individualEmail,
           password: individualPassword,
-          options: signUpOptions,
+          options: {
+            data: {
+              name: individualName,
+              account_type: 'individual',
+            },
+            // Temporarily remove emailRedirectTo to test if that's causing the issue
+            // emailRedirectTo: typeof window !== 'undefined' 
+            //   ? `${window.location.origin}/auth/callback`
+            //   : undefined,
+          },
         })
 
-        if (authError) throw authError
+        if (authError) {
+          console.error('Signup error:', authError)
+          throw new Error(authError.message || 'Failed to create account')
+        }
 
         // Create user profile via API route (server-side, bypasses RLS issues)
         if (authData.user) {
@@ -121,30 +118,26 @@ export default function SignUpPage() {
         }
 
         // Sign up business admin user
-        const redirectUrl = typeof window !== 'undefined' 
-          ? `${window.location.origin}/auth/callback`
-          : undefined
-        
-        const signUpOptions: any = {
-          data: {
-            name: businessAdminName,
-            account_type: 'business',
-            business_name: businessName,
-          },
-        }
-        
-        // Only add emailRedirectTo if we have a valid URL
-        if (redirectUrl) {
-          signUpOptions.emailRedirectTo = redirectUrl
-        }
-
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email: businessEmail,
           password: businessPassword,
-          options: signUpOptions,
+          options: {
+            data: {
+              name: businessAdminName,
+              account_type: 'business',
+              business_name: businessName,
+            },
+            // Temporarily remove emailRedirectTo to test if that's causing the issue
+            // emailRedirectTo: typeof window !== 'undefined' 
+            //   ? `${window.location.origin}/auth/callback`
+            //   : undefined,
+          },
         })
 
-        if (authError) throw authError
+        if (authError) {
+          console.error('Signup error:', authError)
+          throw new Error(authError.message || 'Failed to create account')
+        }
 
         // Create business and user profile
         if (authData.user) {
@@ -183,7 +176,15 @@ export default function SignUpPage() {
         router.refresh()
       }
     } catch (err: any) {
-      setError(err.message || 'An error occurred during sign up')
+      console.error('Signup error details:', err)
+      // Show more detailed error message
+      const errorMessage = err.message || err.error?.message || 'An error occurred during sign up'
+      setError(errorMessage)
+      
+      // Log full error for debugging
+      if (err.error) {
+        console.error('Full error object:', err.error)
+      }
     } finally {
       setLoading(false)
     }
