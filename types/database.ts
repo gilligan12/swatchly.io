@@ -3,6 +3,7 @@ export type AccountType = 'individual' | 'business'
 export interface UserProfile {
   id: string
   email: string
+  name: string
   account_type: AccountType
   business_id?: string | null
   created_at: string
