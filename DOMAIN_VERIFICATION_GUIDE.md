@@ -2,6 +2,8 @@
 
 This guide covers how to verify your domain for Resend email sending, including specific instructions for Vercel and other common platforms.
 
+**⚠️ Important:** If you don't have a domain added to Vercel yet, see `VERCEL_DOMAIN_SETUP.md` first to add your domain.
+
 ## Why Verify Your Domain?
 
 - ✅ Professional email addresses (`noreply@swatchly.io` instead of `onboarding@resend.dev`)
