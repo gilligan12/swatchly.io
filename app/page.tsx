@@ -4,193 +4,291 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       {/* Navigation */}
-      <nav className="container mx-auto px-4 py-6 relative z-10">
+      <nav className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
-          <div className="text-3xl font-display font-bold bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">
+          <div className="text-2xl font-display font-bold text-green-700">
             Swatchly.io
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link
               href="/login"
               className="px-4 py-2 text-gray-700 hover:text-green-700 transition-colors font-medium"
             >
-              Sign In
+              Log in
             </Link>
             <Link
               href="/signup"
-              className="px-6 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg font-semibold"
+              className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
             >
-              Get Started
+              Sign up
             </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="container mx-auto px-4 py-20 relative">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
-        </div>
-
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            Now in Beta
-          </div>
-
-          <h1 className="text-7xl md:text-8xl font-display font-bold text-gray-900 mb-8 leading-tight">
-            Import Products to Your
-            <span className="block bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-              Shopify Store
-            </span>
-          </h1>
-          
-          <p className="text-2xl text-gray-700 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
-            Discover products from any vendor website, scrape product information,
-            edit and customize, then push directly to your Shopify store. 
-            <span className="font-semibold text-green-700">Streamline your workflow.</span>
+      <main className="container mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <p className="text-sm font-semibold text-green-700 mb-4 tracking-wide uppercase">
+            Introducing Swatchly
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <h1 className="text-6xl md:text-7xl font-display font-bold text-gray-900 mb-6 leading-tight">
+            See it, clip it, sell it.
+          </h1>
+          
+          <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Swatchly makes Shopify easy by simplifying the product sourcing process. 
+            Turn any product into a Shopify listing instantly and never manually enter product data again.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/signup"
-              className="group px-10 py-5 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl text-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-2xl hover:shadow-green-500/50 flex items-center gap-2"
+              className="px-8 py-3 bg-gray-900 text-white rounded-lg text-base font-medium hover:bg-gray-800 transition-colors"
             >
-              Start Free Trial
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              Sign up for free
             </Link>
             <Link
-              href="#features"
-              className="px-10 py-5 bg-white text-green-700 rounded-xl text-lg font-semibold hover:bg-green-50 transition-all border-2 border-green-600 shadow-lg hover:shadow-xl"
+              href="#demo"
+              className="px-8 py-3 bg-white text-gray-900 rounded-lg text-base font-medium hover:bg-gray-50 transition-colors border border-gray-200"
             >
-              Learn More
+              Contact us
             </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-4xl font-display font-bold text-green-700 mb-2">10x</div>
-              <div className="text-sm text-gray-600">Faster Import</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-display font-bold text-green-700 mb-2">100%</div>
-              <div className="text-sm text-gray-600">Automated</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-display font-bold text-green-700 mb-2">24/7</div>
-              <div className="text-sm text-gray-600">Available</div>
-            </div>
           </div>
         </div>
 
-        {/* Hero Visual - Dashboard Mock */}
-        <div className="mt-20 max-w-6xl mx-auto relative z-10">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-3xl blur-2xl opacity-20"></div>
-            <div className="relative bg-white rounded-3xl shadow-2xl border border-green-100 overflow-hidden">
-              {/* Dashboard Header */}
-              <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                  <div className="w-3 h-3 bg-white/50 rounded-full"></div>
-                  <div className="w-3 h-3 bg-white/50 rounded-full"></div>
-                  <span className="ml-4 text-white font-semibold">Product Import Dashboard</span>
+        {/* Dashboard Demo */}
+        <div id="demo" className="max-w-6xl mx-auto -mt-10 relative">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+            {/* Dashboard Header */}
+            <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">S</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-white/20 rounded-full"></div>
-                </div>
+                <span className="font-semibold text-gray-900">Swatchly Dashboard</span>
               </div>
-
-              {/* Dashboard Content */}
-              <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
-                {/* Toolbar */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="px-4 py-2 bg-white border border-green-200 rounded-lg text-sm text-gray-700 flex items-center gap-2">
-                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                      Search products...
-                    </div>
-                    <div className="px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium">
-                      + New Import
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-gray-600">Grid</div>
-                    <div className="px-3 py-1.5 bg-green-50 border border-green-200 rounded-lg text-xs text-green-700 font-medium">List</div>
-                  </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
                 </div>
+                <div className="w-8 h-8 bg-gray-100 rounded-full"></div>
+                <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+              </div>
+            </div>
 
-                {/* Product Cards Grid */}
-                <div className="grid grid-cols-3 gap-4">
-                  {/* Product Card 1 */}
-                  <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg mb-3 flex items-center justify-center">
-                      <div className="text-4xl">👕</div>
+            {/* Dashboard Content */}
+            <div className="p-6 bg-gray-50">
+              <div className="flex gap-6">
+                {/* Left Sidebar */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-semibold text-gray-900">Collections</span>
+                      <button className="text-gray-400 hover:text-gray-600">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                      </button>
                     </div>
-                    <div className="h-3 bg-gray-200 rounded w-3/4 mb-2"></div>
-                    <div className="h-2 bg-gray-200 rounded w-1/2 mb-3"></div>
-                    <div className="flex items-center justify-between">
-                      <div className="h-4 bg-green-200 rounded w-16"></div>
-                      <div className="h-4 bg-gray-200 rounded w-12"></div>
+                    <div className="space-y-1">
+                      <div className="px-3 py-2 bg-green-50 border border-green-200 rounded-md flex items-center justify-between">
+                        <span className="text-sm font-medium text-green-700">Summer Collection</span>
+                        <button className="text-green-600 hover:text-green-700">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Product Card 2 */}
-                  <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg mb-3 flex items-center justify-center">
-                      <div className="text-4xl">👟</div>
-                    </div>
-                    <div className="h-3 bg-gray-200 rounded w-4/5 mb-2"></div>
-                    <div className="h-2 bg-gray-200 rounded w-2/3 mb-3"></div>
-                    <div className="flex items-center justify-between">
-                      <div className="h-4 bg-green-200 rounded w-20"></div>
-                      <div className="h-4 bg-gray-200 rounded w-14"></div>
-                    </div>
-                  </div>
-
-                  {/* Product Card 3 */}
-                  <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow">
-                    <div className="aspect-square bg-gradient-to-br from-teal-100 to-green-100 rounded-lg mb-3 flex items-center justify-center">
-                      <div className="text-4xl">🎒</div>
-                    </div>
-                    <div className="h-3 bg-gray-200 rounded w-5/6 mb-2"></div>
-                    <div className="h-2 bg-gray-200 rounded w-3/5 mb-3"></div>
-                    <div className="flex items-center justify-between">
-                      <div className="h-4 bg-green-200 rounded w-18"></div>
-                      <div className="h-4 bg-gray-200 rounded w-10"></div>
+                  
+                  <div className="bg-white rounded-lg border border-gray-200 p-4">
+                    <div className="space-y-2">
+                      <div className="px-3 py-2 rounded-md hover:bg-gray-50 cursor-pointer">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Draft</span>
+                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">12</span>
+                        </div>
+                      </div>
+                      <div className="px-3 py-2 rounded-md hover:bg-gray-50 cursor-pointer">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Ready</span>
+                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">8</span>
+                        </div>
+                      </div>
+                      <div className="px-3 py-2 rounded-md hover:bg-gray-50 cursor-pointer">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">Imported</span>
+                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">24</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Status Bar */}
-                <div className="mt-6 flex items-center justify-between pt-6 border-t border-gray-200">
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-sm text-gray-600">12 Ready</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <span className="text-sm text-gray-600">3 Editing</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm text-gray-600">5 Imported</span>
+                {/* Main Content */}
+                <div className="flex-1">
+                  {/* Search Bar */}
+                  <div className="mb-6">
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Search products..."
+                        className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      />
                     </div>
                   </div>
-                  <div className="text-sm text-gray-500">Last sync: 2 min ago</div>
+
+                  {/* Product List */}
+                  <div className="bg-white rounded-lg border border-gray-200">
+                    <div className="px-4 py-3 border-b border-gray-200">
+                      <span className="text-sm font-semibold text-gray-900">Draft</span>
+                    </div>
+                    
+                    <div className="divide-y divide-gray-200">
+                      {/* Product Item 1 */}
+                      <div className="px-4 py-4 hover:bg-gray-50 cursor-pointer">
+                        <div className="flex items-center gap-4">
+                          <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-2xl">👕</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-sm font-semibold text-gray-900 truncate">
+                                Premium Cotton T-Shirt
+                              </h3>
+                              <span className="text-xs text-gray-500 ml-2">2d ago</span>
+                            </div>
+                            <p className="text-sm text-gray-500 mt-1">Scraped from vendor-site.com</p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="text-xs text-gray-500">$29.99</span>
+                              <span className="text-xs text-gray-400">•</span>
+                              <span className="text-xs text-gray-500">3 variants</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Product Item 2 */}
+                      <div className="px-4 py-4 hover:bg-gray-50 cursor-pointer">
+                        <div className="flex items-center gap-4">
+                          <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-2xl">👟</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-sm font-semibold text-gray-900 truncate">
+                                Running Sneakers Pro
+                              </h3>
+                              <span className="text-xs text-gray-500 ml-2">1d ago</span>
+                            </div>
+                            <p className="text-sm text-gray-500 mt-1">Scraped from vendor-site.com</p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="text-xs text-gray-500">$89.99</span>
+                              <span className="text-xs text-gray-400">•</span>
+                              <span className="text-xs text-gray-500">5 variants</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Product Item 3 */}
+                      <div className="px-4 py-4 hover:bg-gray-50 cursor-pointer bg-green-50">
+                        <div className="flex items-center gap-4">
+                          <div className="w-16 h-16 bg-gradient-to-br from-teal-100 to-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-2xl">🎒</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-sm font-semibold text-gray-900 truncate">
+                                Travel Backpack Elite
+                              </h3>
+                              <span className="text-xs text-gray-500 ml-2">3h ago</span>
+                            </div>
+                            <p className="text-sm text-gray-500 mt-1">Scraped from vendor-site.com</p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="text-xs text-gray-500">$129.99</span>
+                              <span className="text-xs text-gray-400">•</span>
+                              <span className="text-xs text-gray-500">4 variants</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Sidebar - Product Details */}
+                <div className="w-80 flex-shrink-0">
+                  <div className="bg-white rounded-lg border border-gray-200">
+                    <div className="px-4 py-3 border-b border-gray-200">
+                      <span className="text-sm font-semibold text-gray-900">Overview</span>
+                    </div>
+                    
+                    <div className="p-4 space-y-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 text-green-600 mt-0.5">
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">Product scraped</p>
+                          <p className="text-xs text-gray-500 mt-0.5">3 hours ago</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 text-green-600 mt-0.5">
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">Product details</p>
+                          <p className="text-xs text-gray-500 mt-0.5">Title, description, images</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 text-green-600 mt-0.5">
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">Variants</p>
+                          <p className="text-xs text-gray-500 mt-0.5">4 size options</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-gray-200 p-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-600">Overview</span>
+                          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-600">Edit Product</span>
+                          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -198,164 +296,10 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Features Section */}
-      <section id="features" className="container mx-auto px-4 py-24 relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 mb-4">
-              Everything You Need to
-              <span className="block bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                Source Products
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Powerful tools designed to make product sourcing effortless and efficient
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group bg-white p-8 rounded-2xl shadow-lg border border-green-100 hover:border-green-300 transition-all hover:shadow-2xl hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-3xl">🌐</span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                Navigate Any Vendor Site
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Browse vendor websites directly from the app. Find products you want 
-                to sell in your Shopify store with ease.
-              </p>
-            </div>
-            
-            <div className="group bg-white p-8 rounded-2xl shadow-lg border border-green-100 hover:border-green-300 transition-all hover:shadow-2xl hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-3xl">📋</span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                Scrape & Edit Products
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Automatically extract product information. Edit titles, descriptions, 
-                prices, and images before importing.
-              </p>
-            </div>
-            
-            <div className="group bg-white p-8 rounded-2xl shadow-lg border border-green-100 hover:border-green-300 transition-all hover:shadow-2xl hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-3xl">🚀</span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                Push to Shopify
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                One-click import to your Shopify store. Products are created with 
-                variants, images, and all details intact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="container mx-auto px-4 py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent"></div>
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-gray-900 mb-4">
-              How It Works
-            </h2>
-            <p className="text-xl text-gray-600">Simple, fast, and powerful</p>
-          </div>
-          
-          <div className="space-y-12">
-            <div className="flex gap-8 items-start group">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl font-display font-bold shadow-lg group-hover:scale-110 transition-transform">
-                1
-              </div>
-              <div className="flex-1 pt-2">
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                  Connect Your Shopify Store
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Securely connect your Shopify store through OAuth. Your store 
-                  credentials are encrypted and stored safely.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex gap-8 items-start group">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl font-display font-bold shadow-lg group-hover:scale-110 transition-transform">
-                2
-              </div>
-              <div className="flex-1 pt-2">
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                  Find Products on Vendor Sites
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Navigate vendor websites or paste product URLs. Our scraper 
-                  extracts all product information automatically.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex gap-8 items-start group">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl font-display font-bold shadow-lg group-hover:scale-110 transition-transform">
-                3
-              </div>
-              <div className="flex-1 pt-2">
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                  Edit & Customize
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Review and edit product details. Adjust pricing, modify 
-                  descriptions, select images, and configure variants.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex gap-8 items-start group">
-              <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl font-display font-bold shadow-lg group-hover:scale-110 transition-transform">
-                4
-              </div>
-              <div className="flex-1 pt-2">
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
-                  Import to Shopify
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Push products directly to your Shopify store. Images are uploaded, 
-                  variants are created, and products are ready to sell.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="container mx-auto px-4 py-24">
-        <div className="max-w-5xl mx-auto relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl blur-2xl opacity-20"></div>
-          <div className="relative bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-3xl p-12 md:p-16 text-white text-center shadow-2xl">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Ready to Streamline Your Product Sourcing?
-            </h2>
-            <p className="text-xl text-green-50 mb-10 max-w-2xl mx-auto">
-              Join merchants who are saving hours every week with Swatchly.io
-            </p>
-            <Link
-              href="/signup"
-              className="inline-block px-10 py-5 bg-white text-green-700 rounded-xl text-lg font-semibold hover:bg-green-50 transition-all transform hover:scale-105 shadow-2xl hover:shadow-white/50"
-            >
-              Get Started Free
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="container mx-auto px-4 py-12 border-t border-green-100">
+      <footer className="container mx-auto px-6 py-12 mt-20 border-t border-gray-200">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="text-2xl font-display font-bold bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent mb-4 md:mb-0">
+          <div className="text-xl font-display font-bold text-green-700 mb-4 md:mb-0">
             Swatchly.io
           </div>
           <div className="text-gray-600 text-sm">
