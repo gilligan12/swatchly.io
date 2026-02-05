@@ -54,18 +54,26 @@ export default function SignUpPage() {
         }
 
         // Sign up individual user
+        const redirectUrl = typeof window !== 'undefined' 
+          ? `${window.location.origin}/auth/callback`
+          : undefined
+        
+        const signUpOptions: any = {
+          data: {
+            name: individualName,
+            account_type: 'individual',
+          },
+        }
+        
+        // Only add emailRedirectTo if we have a valid URL
+        if (redirectUrl) {
+          signUpOptions.emailRedirectTo = redirectUrl
+        }
+
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email: individualEmail,
           password: individualPassword,
-          options: {
-            emailRedirectTo: typeof window !== 'undefined' 
-              ? `${window.location.origin}/auth/callback`
-              : undefined,
-            data: {
-              name: individualName,
-              account_type: 'individual',
-            },
-          },
+          options: signUpOptions,
         })
 
         if (authError) throw authError
@@ -113,19 +121,27 @@ export default function SignUpPage() {
         }
 
         // Sign up business admin user
+        const redirectUrl = typeof window !== 'undefined' 
+          ? `${window.location.origin}/auth/callback`
+          : undefined
+        
+        const signUpOptions: any = {
+          data: {
+            name: businessAdminName,
+            account_type: 'business',
+            business_name: businessName,
+          },
+        }
+        
+        // Only add emailRedirectTo if we have a valid URL
+        if (redirectUrl) {
+          signUpOptions.emailRedirectTo = redirectUrl
+        }
+
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email: businessEmail,
           password: businessPassword,
-          options: {
-            emailRedirectTo: typeof window !== 'undefined' 
-              ? `${window.location.origin}/auth/callback`
-              : undefined,
-            data: {
-              name: businessAdminName,
-              account_type: 'business',
-              business_name: businessName,
-            },
-          },
+          options: signUpOptions,
         })
 
         if (authError) throw authError
