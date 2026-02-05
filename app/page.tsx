@@ -93,16 +93,104 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero Visual */}
+        {/* Hero Visual - Dashboard Mock */}
         <div className="mt-20 max-w-6xl mx-auto relative z-10">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-3xl blur-2xl opacity-20"></div>
-            <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-green-100">
-              <div className="aspect-video bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-                <div className="relative z-10 text-center">
-                  <div className="text-8xl mb-6 animate-bounce-slow">🛍️</div>
-                  <p className="text-gray-600 font-medium">Product Import Dashboard Preview</p>
+            <div className="relative bg-white rounded-3xl shadow-2xl border border-green-100 overflow-hidden">
+              {/* Dashboard Header */}
+              <div className="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                  <div className="w-3 h-3 bg-white/50 rounded-full"></div>
+                  <div className="w-3 h-3 bg-white/50 rounded-full"></div>
+                  <span className="ml-4 text-white font-semibold">Product Import Dashboard</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-white/20 rounded-full"></div>
+                </div>
+              </div>
+
+              {/* Dashboard Content */}
+              <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
+                {/* Toolbar */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="px-4 py-2 bg-white border border-green-200 rounded-lg text-sm text-gray-700 flex items-center gap-2">
+                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      Search products...
+                    </div>
+                    <div className="px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium">
+                      + New Import
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs text-gray-600">Grid</div>
+                    <div className="px-3 py-1.5 bg-green-50 border border-green-200 rounded-lg text-xs text-green-700 font-medium">List</div>
+                  </div>
+                </div>
+
+                {/* Product Cards Grid */}
+                <div className="grid grid-cols-3 gap-4">
+                  {/* Product Card 1 */}
+                  <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg mb-3 flex items-center justify-center">
+                      <div className="text-4xl">👕</div>
+                    </div>
+                    <div className="h-3 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-2 bg-gray-200 rounded w-1/2 mb-3"></div>
+                    <div className="flex items-center justify-between">
+                      <div className="h-4 bg-green-200 rounded w-16"></div>
+                      <div className="h-4 bg-gray-200 rounded w-12"></div>
+                    </div>
+                  </div>
+
+                  {/* Product Card 2 */}
+                  <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg mb-3 flex items-center justify-center">
+                      <div className="text-4xl">👟</div>
+                    </div>
+                    <div className="h-3 bg-gray-200 rounded w-4/5 mb-2"></div>
+                    <div className="h-2 bg-gray-200 rounded w-2/3 mb-3"></div>
+                    <div className="flex items-center justify-between">
+                      <div className="h-4 bg-green-200 rounded w-20"></div>
+                      <div className="h-4 bg-gray-200 rounded w-14"></div>
+                    </div>
+                  </div>
+
+                  {/* Product Card 3 */}
+                  <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-shadow">
+                    <div className="aspect-square bg-gradient-to-br from-teal-100 to-green-100 rounded-lg mb-3 flex items-center justify-center">
+                      <div className="text-4xl">🎒</div>
+                    </div>
+                    <div className="h-3 bg-gray-200 rounded w-5/6 mb-2"></div>
+                    <div className="h-2 bg-gray-200 rounded w-3/5 mb-3"></div>
+                    <div className="flex items-center justify-between">
+                      <div className="h-4 bg-green-200 rounded w-18"></div>
+                      <div className="h-4 bg-gray-200 rounded w-10"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Status Bar */}
+                <div className="mt-6 flex items-center justify-between pt-6 border-t border-gray-200">
+                  <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-sm text-gray-600">12 Ready</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                      <span className="text-sm text-gray-600">3 Editing</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span className="text-sm text-gray-600">5 Imported</span>
+                    </div>
+                  </div>
+                  <div className="text-sm text-gray-500">Last sync: 2 min ago</div>
                 </div>
               </div>
             </div>
