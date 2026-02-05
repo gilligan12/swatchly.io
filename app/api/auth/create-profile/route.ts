@@ -1,24 +1,34 @@
-import { createClient } from '@/lib/supabase/server'
+import { createServiceClient } from '@/lib/supabase/service'
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
   try {
-    const supabase = await createClient()
     const body = await request.json()
     const { userId, email, name, accountType, businessId } = body
 
-    // Verify the user is authenticated
-    const { data: { user }, error: authError } = await supabase.auth.getUser()
-    
-    if (authError || !user || user.id !== userId) {
+    // Validate required fields
+    if (!userId || !email || !name || !accountType) {
       return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
+        { error: 'Missing required fields' },
+        { status: 400 }
+      )
+    }
+
+    // Use service client to bypass RLS (needed during signup when session isn't fully established)
+    const serviceClient = createServiceClient()
+
+    // Verify the user exists in auth.users (basic validation)
+    const { data: authUser, error: authError } = await serviceClient.auth.admin.getUserById(userId)
+    
+    if (authError || !authUser) {
+      return NextResponse.json(
+        { error: 'User not found' },
+        { status: 404 }
       )
     }
 
     // Call the database function that bypasses RLS
-    const { error: profileError } = await supabase.rpc('create_user_profile', {
+    const { error: profileError } = await serviceClient.rpc('create_user_profile', {
       p_user_id: userId,
       p_email: email,
       p_name: name,
