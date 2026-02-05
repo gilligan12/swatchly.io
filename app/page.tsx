@@ -2,26 +2,28 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
-      {/* Navigation */}
-      <nav className="container mx-auto px-6 py-6">
-        <div className="flex items-center justify-between">
-          <div className="text-2xl font-display font-bold text-green-700">
-            Swatchly.io
-          </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/login"
-              className="px-4 py-2 text-gray-700 hover:text-green-700 transition-colors font-medium"
-            >
-              Log in
-            </Link>
-            <Link
-              href="/signup"
-              className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
-            >
-              Sign up
-            </Link>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 via-teal-50 to-cyan-50">
+      {/* Floating Navigation */}
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xl font-bold text-green-700">
+              Swatchly.io
+            </div>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/login"
+                className="px-4 py-2 text-gray-700 hover:text-green-700 transition-colors font-medium text-sm"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
+              >
+                Sign up
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -33,7 +35,7 @@ export default function Home() {
             Introducing Swatchly
           </p>
           
-          <h1 className="text-6xl md:text-7xl font-display font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             See it, clip it, sell it.
           </h1>
           
@@ -67,7 +69,7 @@ export default function Home() {
                 <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">S</span>
                 </div>
-                <span className="font-semibold text-gray-900">Swatchly Dashboard</span>
+                <span className="font-semibold text-gray-900 text-sm">Swatchly Dashboard</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
@@ -85,9 +87,9 @@ export default function Home() {
               <div className="flex gap-6">
                 {/* Left Sidebar */}
                 <div className="w-64 flex-shrink-0">
-                  <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                    <div className="bg-white rounded-lg border border-gray-200 p-4 mb-4">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-semibold text-gray-900">Collections</span>
+                      <span className="text-sm font-semibold text-gray-900 text-xs">Collections</span>
                       <button className="text-gray-400 hover:text-gray-600">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
