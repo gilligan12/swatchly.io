@@ -54,7 +54,6 @@ export default function SignUpPage() {
         }
 
         // Sign up individual user
-        // Try without emailRedirectTo first to see if that's the issue
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email: individualEmail,
           password: individualPassword,
@@ -63,10 +62,7 @@ export default function SignUpPage() {
               name: individualName,
               account_type: 'individual',
             },
-            // Temporarily remove emailRedirectTo to test if that's causing the issue
-            // emailRedirectTo: typeof window !== 'undefined' 
-            //   ? `${window.location.origin}/auth/callback`
-            //   : undefined,
+            // Don't set emailRedirectTo - let Supabase use Site URL from settings
           },
         })
 
@@ -127,10 +123,7 @@ export default function SignUpPage() {
               account_type: 'business',
               business_name: businessName,
             },
-            // Temporarily remove emailRedirectTo to test if that's causing the issue
-            // emailRedirectTo: typeof window !== 'undefined' 
-            //   ? `${window.location.origin}/auth/callback`
-            //   : undefined,
+            // Don't set emailRedirectTo - let Supabase use Site URL from settings
           },
         })
 
