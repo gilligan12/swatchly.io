@@ -301,7 +301,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="container mx-auto px-6 py-12 mt-20 border-t border-gray-200">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="text-xl font-display font-bold text-green-700 mb-4 md:mb-0">
+          <div className="text-lg font-bold text-green-700 mb-4 md:mb-0">
             Swatchly.io
           </div>
           <div className="text-gray-600 text-sm">
